@@ -72,11 +72,11 @@ int main(void)
 	_GPIO_Init(); // GPIO (LED & SW) 초기화
 	_EXTI_Init();   // EXTI(외부 인터럽트) 초기화
 	LCD_Init();	// LCD 모듈 초기화
-	DelayMS(300);
+	DelayMS(400);
 	Fram_Init();                // FRAM 초기화 H/W 초기화
 	Fram_Status_Config();   // FRAM 초기화 S/W 초기화
 
-	GPIOG->ODR |= 0x0004;	// 초기값: LED1 ON (2층)
+	GPIOG->ODR |= 0x0008;	// 초기값: LED1 ON (3층)
 	DisplayInitScreen();	// LCD 초기화면
 
 	if (Fram_Read(608) >= 1 || Fram_Read(608) <= 9) //FRAM을 읽어와서 Arrival_6_Flag에 담는다.
